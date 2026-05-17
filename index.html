@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>碧螺春纯度测试</title>
+  <meta name="description" content="14道题，测你到底是真懂BLG，还是只是路过嘴两句。">
+  <meta name="og:title" content="碧螺春纯度测试">
+  <meta name="og:description" content="14道题，测你到底是真懂BLG，还是只是路过嘴两句。">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+  <div class="noise-overlay"></div>
+  <div class="fog-overlay"></div>
+
+  <div id="app">
+    <section id="intro" class="page page--active">
+      <div class="intro__watermark"></div>
+      <div class="intro__content">
+        <div class="intro__badge">LEAGUE OF LEGENDS · BLG</div>
+        <h1 class="intro__title">碧螺春<br><span class="intro__title--accent">纯度测试</span></h1>
+        <p class="intro__subtitle">到底是真爱粉还是串子，一测便知。</p>
+        <p class="intro__desc">14道题，不靠嘴，靠答。真爱粉还是来串场的，做完自然有数。</p>
+        <button id="btn-start" class="btn btn--primary" aria-label="Let gooo!!">
+          <span class="btn__text">Let gooo!!</span>
+          <span class="btn__glow"></span>
+        </button>
+      </div>
+      <div class="intro__deco">
+        <div class="intro__orb intro__orb--1"></div>
+        <div class="intro__orb intro__orb--2"></div>
+        <div class="intro__orb intro__orb--3"></div>
+      </div>
+    </section>
+
+    <section id="quiz" class="page">
+      <div class="quiz__header">
+        <div class="quiz__counter">
+          <span class="quiz__counter-label">做到这了</span>
+          <span id="current-num" class="quiz__counter-current">01</span>
+          <span class="quiz__counter-sep">/</span>
+          <span id="counter-total" class="quiz__counter-total">14</span>
+        </div>
+        <div class="quiz__progress">
+          <div id="progress-bar" class="quiz__progress-bar" style="width: 0%"></div>
+        </div>
+      </div>
+      <div class="quiz__card" id="quiz-card">
+        <h2 id="question-text" class="quiz__question"></h2>
+        <div id="options-container" class="quiz__options" role="radiogroup" aria-label="选项"></div>
+      </div>
+    </section>
+
+    <section id="result" class="page">
+      <div class="result__watermark"></div>
+      <div class="result__content">
+        <div class="result__ring-wrapper">
+          <svg class="result__ring" viewBox="0 0 200 200">
+            <circle class="result__ring-bg" cx="100" cy="100" r="85" />
+            <circle id="ring-progress" class="result__ring-progress" cx="100" cy="100" r="85" />
+          </svg>
+          <div class="result__ring-text">
+            <span class="result__ring-label">我这味儿</span>
+            <div class="result__ring-text-inner">
+              <span id="result-percent" class="result__percent">0</span>
+              <span class="result__percent-sign">%</span>
+            </div>
+          </div>
+        </div>
+        <div class="result__label">我测出来是</div>
+        <h2 id="result-title" class="result__title"></h2>
+        <div id="perfect-bonus" class="result__perfect-bonus" style="display:none;"></div>
+        <p id="result-score" class="result__score"></p>
+        <div class="result__blocks">
+          <div class="result__block">
+            <div class="result__block-label">嘴上不说</div>
+            <p id="result-quote" class="result__block-text"></p>
+          </div>
+          <div class="result__block">
+            <div class="result__block-label">我替你说</div>
+            <p id="result-desc" class="result__block-text"></p>
+          </div>
+          <div class="result__block result__block--highlight">
+            <div class="result__block-label">硬挑的话</div>
+            <p id="result-category" class="result__block-text"></p>
+          </div>
+        </div>
+        <div class="result__breakdown">
+          <div class="result__breakdown-title">分类表现</div>
+          <div id="category-bars" class="result__category-bars"></div>
+        </div>
+        <div class="result__review">
+          <div class="result__review-title">错题回顾</div>
+          <div id="wrong-review" class="result__review-list"></div>
+          <div id="all-correct" class="result__review-perfect" style="display:none;">全对，没什么好回顾的。</div>
+        </div>
+        <div class="result__actions">
+          <button id="btn-restart" class="btn btn--secondary" aria-label="再来一次">
+            <span class="btn__text">再来一次</span>
+          </button>
+          <button id="btn-copy" class="btn btn--primary" aria-label="发出去">
+            <span class="btn__text">发出去</span>
+            <span class="btn__glow"></span>
+          </button>
+        </div>
+        <p class="result__hint">复制这段，发出去让别人看看你到底是哪路</p>
+        <p id="result-sponsor" class="result__sponsor"></p>
+      </div>
+    </section>
+  </div>
+
+  <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+  <footer class="footer">
+    <p>本测试不负责替人挽尊。</p>
+  </footer>
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
