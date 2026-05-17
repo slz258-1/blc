@@ -466,8 +466,8 @@
   }
 
   function buildShareText(level, score) {
-    if (!level) return "我刚测了个碧螺春纯度，你也来试试。";
-    return level.shareText;
+    if (!level) return '我刚测了个碧螺春纯度，你也来试试吧 https://rainbow-faloodeh-44dbf2.netlify.app/';
+    return '我在碧螺春纯度测试中获得了' + score + '/' + TOTAL + '的成绩，鉴定为\u201C' + level.title + '\u201D，你也来试试吧 https://rainbow-faloodeh-44dbf2.netlify.app/';
   }
 
   function copyShareText() {
